@@ -15,7 +15,9 @@ fi
 
 # Determine OS
 dot_env_os=$(uname)
-if [[ "$dot_env_os" != "Darwin" && "$dot_env_os" != "Linux" && "$dot_env_os" != "SunOS" ]]; then
+if [[ "$dot_env_os" =~ ^CYGWIN_NT* || "$dot_env_os" =~ ^MINGW64_NT* ]]; then
+  dot_env_os=Windows
+elif [[ "$dot_env_os" != "Darwin" && "$dot_env_os" != "Linux" && "$dot_env_os" != "SunOS" ]]; then
   echo_error "Sorry, bash.env does not support your platform: '$dot_env_os'"
   return 1
 fi
