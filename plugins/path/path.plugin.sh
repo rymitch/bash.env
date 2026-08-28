@@ -58,7 +58,7 @@ function pathmunge () {
 }
 
 # Solaris doesn't like 'sed -E'
-if [ "$OS" != "SunOS" ]; then
+if [ "$dot_env_os" != "SunOS" ]; then
   for p in $paths; do
     pathmunge $p
   done

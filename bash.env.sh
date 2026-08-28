@@ -14,12 +14,12 @@ if [[ "$SHLVL" == "1" ]]; then
 fi
 
 # Determine OS
-OS=$(uname)
-if [[ "$OS" != "Darwin" && "$OS" != "Linux" && "$OS" != "SunOS" ]]; then
-  echo_error "Sorry, bash.env does not support your platform: '$OS'"
+dot_env_os=$(uname)
+if [[ "$dot_env_os" != "Darwin" && "$dot_env_os" != "Linux" && "$dot_env_os" != "SunOS" ]]; then
+  echo_error "Sorry, bash.env does not support your platform: '$dot_env_os'"
   return 1
 fi
-OS_DIR=$dot_env_path/os/$OS
+dot_env_os_dir=$dot_env_path/os/$dot_env_os
 
 # Check for updates
 if [[ "$ENABLE_AUTO_UPDATE" == "true" ]]; then
@@ -42,9 +42,9 @@ fi
 
 # Now source OS specifics
 if [[ "$SHLVL" == "1" && "$dot_env_verbose" == "1" ]]; then
-  echo "Sourcing $OS Environment"
+  echo "Sourcing $dot_env_os Environment"
 fi
-for i in $OS_DIR/*.sh ; do
+for i in $dot_env_os_dir/*.sh ; do
   if [ -r "$i" ]; then
     . $i
   fi
