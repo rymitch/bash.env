@@ -1,2 +1,0 @@
-#
-pathmunge "/usr/local/sbin"
