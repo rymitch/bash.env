@@ -2,6 +2,8 @@ HISTFILESIZE=100000
 HISTIGNORE=cls:dir:exit:fg:ls
 HISTSIZE=10000
 
+bind 'set bell-style none'
+
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
